@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/20 14:48:29 by basle-qu          #+#    #+#             */
-/*   Updated: 2014/12/13 09:59:35 by basle-qu         ###   ########.fr       */
+/*   Updated: 2014/12/13 11:47:12 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "list.h"
 #include "fct.h"
 #include "fct2.h"
-
 
 char	ft_gettype(int mod)
 {
@@ -65,12 +64,12 @@ void	ft_print_list(t_list *list, char *optn)
 	tmp = list;
 	max_var = (int*)malloc(sizeof(int) * 4);
 	init_max_var(list, max_var);
-	if (optn[0] =='l')
+	if (optn[0] == 'l')
 		ft_print_total(list);
 	while (tmp != NULL && optn[2] == 'a')
 	{
 		if (optn[0] == 'l')
-			print_optn(tmp, max_var);	
+			print_optn(tmp, max_var);
 		ft_putendl(tmp->nom);
 		tmp = tmp->next;
 	}
@@ -79,7 +78,7 @@ void	ft_print_list(t_list *list, char *optn)
 		if (tmp->nom[0] != '.')
 		{
 			if (optn[0] == 'l')
- 				print_optn(tmp, max_var);
+				print_optn(tmp, max_var);
 			ft_putendl(tmp->nom);
 		}
 		tmp = tmp->next;
@@ -94,7 +93,8 @@ void	ft_ls(char *optn, char *chemin)
 
 	list = NULL;
 	rep = opendir(chemin);
-	if (!rep) perror("");
+	if (!rep)
+		perror("");
 	while ((fichierlu = readdir(rep)) != NULL)
 		list = add_link(list, fichierlu, chemin);
 	ft_sort_list(&list, optn);

@@ -6,13 +6,14 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 16:33:49 by basle-qu          #+#    #+#             */
-/*   Updated: 2014/12/13 10:03:46 by basle-qu         ###   ########.fr       */
+/*   Updated: 2014/12/13 11:46:59 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/includes/libft.h"
 #include "ls.h"
 #include "list.h"
+#include "fct2.h"
 
 void	ft_reverse_list(t_list **list)
 {
@@ -88,17 +89,6 @@ void	ft_sort_list(t_list **list, char *optn)
 	}
 }
 
-char	*tri_join(char *chemin, char  *d_name)
-{
-	char	*cpy;
-	char	*cpy2;
-
-	cpy = ft_strjoin(chemin, "/");
-	cpy2 = ft_strjoin(cpy, d_name);
-	free(cpy);
-	return (cpy2);
-}
-
 t_list	*init_new(t_list *new, file *fichierlu, char *chemin)
 {
 	int				i;
@@ -125,7 +115,7 @@ t_list	*init_new(t_list *new, file *fichierlu, char *chemin)
 	return (new);
 }
 
-t_list		*add_link(t_list *list, file *fichierlu, char *chemin)
+t_list	*add_link(t_list *list, file *fichierlu, char *chemin)
 {
 	t_list	*new;
 	t_list	*tmp;

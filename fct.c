@@ -6,9 +6,10 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/27 20:47:16 by basle-qu          #+#    #+#             */
-/*   Updated: 2014/12/08 14:42:58 by basle-qu         ###   ########.fr       */
+/*   Updated: 2014/12/13 11:30:16 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ls.h"
 #include "list.h"
 #include "libft/includes/libft.h"
@@ -97,5 +98,5 @@ void	print_optn(t_list *tmp, int *max_var)
 	ft_putnbr((int)tmp->size);
 	ft_putchar(' ');
 	ft_putstr(ft_strsub(ctime((const time_t*)&tmp->time), 4, 12));
-	ft_putchar(' ' );
+	ft_putchar(' ');
 }

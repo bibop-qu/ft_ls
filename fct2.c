@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 14:51:56 by basle-qu          #+#    #+#             */
-/*   Updated: 2014/12/13 10:30:04 by basle-qu         ###   ########.fr       */
+/*   Updated: 2014/12/13 11:32:59 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ char	**ft_sort_arg(int ac, char **av)
 		i++;
 	}
 	return (av);
+}
+
+char	*tri_join(char *chemin, char *d_name)
+{
+	char	*cpy;
+	char	*cpy2;
+
+	cpy = ft_strjoin(chemin, "/");
+	cpy2 = ft_strjoin(cpy, d_name);
+	free(cpy);
+	return (cpy2);
 }
 
 void	make_ls(int ac, char **av, char *optn)
