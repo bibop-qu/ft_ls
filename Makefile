@@ -6,7 +6,7 @@
 #    By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/20 14:34:58 by basle-qu          #+#    #+#              #
-#    Updated: 2014/12/08 16:03:19 by basle-qu         ###   ########.fr        #
+#    Updated: 2014/12/13 10:45:53 by basle-qu         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,8 @@ OBJS =	main.o \
 		fct2.o
 NAME = ft_ls 
 CFLAG = -Wall -Wextra -Werror
+
+.PHONY: all $(NAME) test clean fclean re
 
 all: $(NAME)
 
