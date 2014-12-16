@@ -6,7 +6,7 @@
 /*   By: basle-qu <basle-qu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/08 14:51:56 by basle-qu          #+#    #+#             */
-/*   Updated: 2014/12/13 11:32:59 by basle-qu         ###   ########.fr       */
+/*   Updated: 2014/12/16 17:15:22 by basle-qu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	make_ls(int ac, char **av, char *optn)
 {
 	int		i;
 	char	*chemin;
+	struct stat tri;
 
 	i = 1;
 	while (av[i] && av[i][0] == '-')
@@ -86,16 +87,22 @@ void	make_ls(int ac, char **av, char *optn)
 		ft_ls(optn, ".");
 	while (i < ac)
 	{
-		chemin = av[i];
-		if (ac < 2 || (av[i - 1][0] == '-' && !av[i + 1]))
+		stat(av[i], &tri);
+		if (S_ISDIR(tri.st_mode) == 0)
 			;
 		else
 		{
-			ft_putstr(chemin);
-			ft_putchar(':');
-			ft_putchar('\n');
+			chemin = av[i];
+			if (ac < 3 || (av[i - 1][0] == '-' && !av[i + 1]))
+				;
+			else
+			{
+				ft_putstr(chemin);
+				ft_putchar(':');
+				ft_putchar('\n');
+			}
+			ft_ls(optn, chemin);
 		}
-		ft_ls(optn, chemin);
 		if (ac > 2 && (i + 1) < ac)
 			ft_putchar('\n');
 		i++;
